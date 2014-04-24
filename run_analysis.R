@@ -1,5 +1,5 @@
 #Train data frame
-directory<-"C:/Users/DO TON/Downloads/Getting and Cleaning Data/Peer Assessment/"
+directory<-getwd()
 setwd(paste(directory,"UCI HAR Dataset/train/",sep=""))
 x_train<-read.table("X_train.txt")
 y_train<-read.table("y_train.txt")
