@@ -40,3 +40,12 @@ sub_df$Descriptive.Labels<-labels[,2][sub_df$Labels]
 #move the Descriptive.Labels ahead
 sub_df<-sub_df[,c(1,2,82,3:81)]
 #getting the mean for each person and for each activity
+final_df<-aggregate(sub_df,list(Subject=sub_df$Subject,Descriptive.Labels=sub_df$Descriptive.Labels),mean)
+#Delete the extra Subject and Descriptive.Labels column
+final_df<-final_df[,-c(4,5)]
+
+#Write to a text file
+setwd("C:/Users/DO TON/Downloads/Getting and Cleaning Data/Peer Assessment/UCI HAR Dataset")
+fileConn<-file("TidyData.txt")
+write.table(final_df,fileConn)
+
